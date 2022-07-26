@@ -45,7 +45,7 @@ class Team extends Resource
             ID::make()->sortable(),
 
             BelongsTo::make('User')
-                //->searchable() // separate issue, when using searchable it will not update the selection when match found.
+                ->searchable() // separate issue, when using searchable it will not update the selection when match found.
                 ->dependsOn(['name'], function (BelongsTo $field, NovaRequest $request, FormData $formData) {
                     if (isset($formData['name'])) {
 
